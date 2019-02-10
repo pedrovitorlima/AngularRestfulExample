@@ -1,0 +1,25 @@
+<!-- Two ways to change ths style of my html elements -->
+<!-- Both ways uses properties of my <element>.component.ts -->
+<!-- The first one is by ngClass, putting a list with each element has his 
+  condition to be used. Also, we can use the same approach with ngStyle -->
+<h1 [ngClass]="{
+  'gray': h1Style,
+  'large': !h1Style
+}">Home</h1>
+
+<!--The second one is by style property, using a conditional inside as a sentence. 
+  I think this way is pretty much ugly and bad to read :( -->
+<div [style.color]="divStyle ? 'red' : 'black' ">
+  Hi! This is my home description.
+</div>
+
+<!-- Also, we can bound a click event this way and implement this function on 
+  <element>.component.ts to be called when the user click -->
+<button (click)="firstClick()">Click me</button> 
+
+<ul *ngIf="users">
+  <li *ngFor="let user of users.data">
+    <img [src]="user.avatar">
+    <p>{{ user.first_name }} {{ user.last_name }}</p>
+  </li>
+</ul>
